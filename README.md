@@ -1,3 +1,3 @@
-# layer-jupyter-notebook
+# layer-conda
 
-Fork of https://github.com/tengu-team/layer-jupyter-notebook
+Reactive subordnate charm to aid in the preparing of Anaconda environments.

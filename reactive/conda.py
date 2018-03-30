@@ -6,7 +6,7 @@ from charmhelpers.fetch.archiveurl import ArchiveUrlFetchHandler
 from charms.reactive import endpoint_from_flag, when, when_not, set_flag
 
 
-@when('endpoint.conda.joined')
+@when('endpoint.conda.available')
 @when_not('conda.installed')
 def install_conda():
     aufh = ArchiveUrlFetchHandler()
@@ -14,7 +14,7 @@ def install_conda():
     conda_data = endpoint.relation_data()[0]
 
     hookenv.log("Install Conda")
-    hookenv.status_set('maintenence', "Installing Conda")
+    hookenv.status_set('maintenance', "Installing Conda")
 
     # Download and install conda
     conda_installer_path = aufh.download_and_validate(
