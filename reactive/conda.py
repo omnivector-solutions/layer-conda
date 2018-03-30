@@ -43,6 +43,6 @@ def install_conda():
 
 @when_not('endpoint.conda.available')
 def status_blocked():
-    hookenv.status_set('blocked',
-                       "Need relation to conda provider to continue.")
+    status_set('blocked',
+               "Need relation to conda provider to continue.")
     return
