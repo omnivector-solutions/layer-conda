@@ -29,10 +29,11 @@ def install_conda():
     create_conda_venv(python_version="3.5")
 
     if conda_data.get('conda_extra_packages'):
-        install_conda_packages(conda_data.get('conda_extra_packages'))
+        install_conda_packages(conda_data.get('conda_extra_packages').split())
 
     if conda_data.get('conda_extra_pip_packages'):
-        install_conda_pip_packages(conda_data.get('conda_extra_pip_packages'))
+        install_conda_pip_packages(
+            conda_data.get('conda_extra_pip_packages').split())
 
     chownr(str(CONDA_HOME), 'ubuntu', 'ubuntu', chowntopdir=True)
 
