@@ -3,8 +3,13 @@ from charmhelpers.core.host import chownr
 
 from charms.reactive import endpoint_from_flag, when, when_not, set_flag
 
-from charms.layer.conda_api import init_install_conda, CONDA_HOME
-
+from charms.layer.conda_api import (
+    CONDA_HOME,
+    create_conda_venv,
+    init_install_conda,
+    install_conda_packages,
+    install_conda_pip_packages
+)
 
 @when('endpoint.conda.available')
 @when_not('conda.installed')
@@ -22,7 +27,14 @@ def install_conda():
     )
 
     create_conda_venv(python_version="3.5")
-    chownr(CONDA_HOME, 'ubuntu', 'ubuntu', chowntopdir=True)
+
+    if conda_data.get('conda_extra_packages'):
+        install_conda_packages(conda_data.get('conda_extra_packages'))
+
+    if conda_data.get('conda_extra_pip_packages'):
+        install_conda_pip_packages(conda_data.get('conda_extra_pip_packages'))
+
+    chownr(str(CONDA_HOME), 'ubuntu', 'ubuntu', chowntopdir=True)
 
     log("Conda installed")
     status_set('active', "Conda installed")
