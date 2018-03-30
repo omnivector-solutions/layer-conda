@@ -1,0 +1,8 @@
+includes:
+  - 'layer:basic'
+  - 'interface:juju-info'
+  - 'interface:conda'
+options:
+  basic:
+    use_venv: true
+repo: "https://github.com/omnivector-solutions/layer-conda"
