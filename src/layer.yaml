@@ -1,8 +1,8 @@
 includes:
   - 'layer:basic'
   - 'layer:conda-api'
+  - 'layer:status'
   - 'interface:juju-info'
-  - 'interface:conda'
 options:
   basic:
     use_venv: true

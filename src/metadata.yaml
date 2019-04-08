@@ -10,11 +10,9 @@ tags:
   - anaconda
   - conda
 series:
-- xenial
+- bionic
 subordinate: true
 requires:
   juju-info:
     interface: juju-info
     scope: container
-  conda:
-    interface: conda
