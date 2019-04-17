@@ -46,9 +46,9 @@ def install_conda():
 
         # Download and install conda
         init_install_conda(
-            conf.get('conda-installer-url'),
-            conf.get('conda-installer-sha256'),
-            validate="sha256"
+            url=conf.get('conda-installer-url'),
+            checksum=conf.get('conda-installer-checksum'),
+            hash_type=conf.get('conda-installer-hash-type')
         )
 
     else:
