@@ -1,9 +1,13 @@
 includes:
   - 'layer:basic'
+  - 'layer:apt'
   - 'layer:conda-api'
   - 'layer:status'
   - 'interface:juju-info'
 options:
   basic:
     use_venv: true
+  apt:
+    packages:
+      - libpq-dev
 repo: "https://github.com/omnivector-solutions/layer-conda"

@@ -35,6 +35,7 @@ def set_started_flag():
 
 
 @when_not('conda.installed')
+@when('apt.installed.libpq-dev')
 def install_conda():
     """Install anaconda
     """
