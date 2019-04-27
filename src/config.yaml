@@ -1,4 +1,9 @@
 options:
+  conda-env-refresh:
+    type: string
+    default: ""
+    description: |
+      Make a change to this value to wipe the conda env clean and reinstall all packages
   conda-extra-packages:
     type: string
     default: ""

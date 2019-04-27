@@ -3,7 +3,6 @@ from charmhelpers.core.host import chownr
 
 from charms.reactive import (
     clear_flag,
-    endpoint_from_flag,
     hook,
     set_flag,
     when,
@@ -100,7 +99,8 @@ def set_conda_available_status():
 
 
 @when_any('config.changed.conda-extra-packages',
-          'config.changed.conda-extra-pip-packages')
+          'config.changed.conda-extra-pip-packages',
+          'config.changed.conda-env-refresh')
 @when('conda.venv.available',
       'conda.installed',
       'conda.juju.started')
